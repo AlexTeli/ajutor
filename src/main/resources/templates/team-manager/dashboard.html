@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Team Manager Dashboard</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><i class="fas fa-users me-2"></i>Team Manager Dashboard</h1>
+        <span class="badge bg-primary fs-6" th:text="${assignedTeam}"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-bar fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Team Statistics</h5>
+                    <p class="card-text">View detailed statistics for your team</p>
+                    <a th:href="@{'/teams/' + ${assignedTeam} + '/stats'}" class="btn btn-primary">
+                        View Team Stats
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-balance-scale fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Compare Teams</h5>
+                    <p class="card-text">Compare your team against opponents</p>
+                    <a th:href="@{'/compare/teams?team1=' + ${assignedTeam}}" class="btn btn-success">
+                        Compare Teams
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-user-friends fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Team Players</h5>
+                    <p class="card-text">View your team's player statistics</p>
+                    <a th:href="@{'/players?team=' + ${assignedTeam}}" class="btn btn-info">
+                        View Players
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-info-circle me-2"></i>Team Manager Features</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-check text-success me-2"></i>Available Features:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-caret-right text-primary me-2"></i>View comprehensive team statistics</li>
+                                <li><i class="fas fa-caret-right text-primary me-2"></i>Compare your team with opponents</li>
+                                <li><i class="fas fa-caret-right text-primary me-2"></i>Analyze individual player performance</li>
+                                <li><i class="fas fa-caret-right text-primary me-2"></i>Access advanced team metrics</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-lightbulb text-warning me-2"></i>Quick Tips:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-caret-right text-warning me-2"></i>Use the compare feature to analyze upcoming opponents</li>
+                                <li><i class="fas fa-caret-right text-warning me-2"></i>Check player stats to identify strengths and weaknesses</li>
+                                <li><i class="fas fa-caret-right text-warning me-2"></i>Monitor team performance across different metrics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

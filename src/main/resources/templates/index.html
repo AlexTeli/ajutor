@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="jumbotron bg-primary text-white rounded p-5 mb-4">
+        <h1 class="display-4">Welcome to Football Stats</h1>
+        <p class="lead">Comprehensive football statistics and analysis platform</p>
+        <hr class="my-4">
+        <p>View detailed player and team statistics, compare performances, and get insights.</p>
+        <a class="btn btn-light btn-lg" href="/players" role="button">
+            <i class="fas fa-user me-2"></i>View Players
+        </a>
+        <a class="btn btn-outline-light btn-lg ms-2" href="/teams" role="button">
+            <i class="fas fa-users me-2"></i>View Teams
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Player Statistics</h5>
+                    <p class="card-text">Comprehensive player performance data including goals, assists, and advanced metrics.</p>
+                    <a href="/players" class="btn btn-primary">Explore Players</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Team Analysis</h5>
+                    <p class="card-text">Team performance metrics, tactical analysis, and comparative statistics.</p>
+                    <a href="/teams" class="btn btn-success">View Teams</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-balance-scale fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Compare & Predict</h5>
+                    <p class="card-text">Compare players and teams side-by-side with performance predictions.</p>
+                    <a href="/compare" class="btn btn-warning">Start Comparing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

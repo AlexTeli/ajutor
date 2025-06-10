@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h1>
+        <span class="text-muted">Welcome back, <span th:text="${user.username}"></span>!</span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-user fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Player Stats</h5>
+                    <p class="card-text">Search and view detailed player statistics</p>
+                    <a href="/players" class="btn btn-primary">Browse Players</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Team Stats</h5>
+                    <p class="card-text">Explore comprehensive team performance data</p>
+                    <a href="/teams" class="btn btn-success">Browse Teams</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-balance-scale fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Compare</h5>
+                    <p class="card-text">Compare players and teams side by side</p>
+                    <a href="/compare" class="btn btn-warning">Start Comparing</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-crystal-ball fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Predictions</h5>
+                    <p class="card-text">Get insights and performance predictions</p>
+                    <a href="/predictions" class="btn btn-info">View Predictions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-fire me-2"></i>Popular Features</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-chart-line text-primary me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Advanced Statistics</h6>
+                                    <small class="text-muted">xG, xA, progressive passes and more</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-search text-success me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Smart Search</h6>
+                                    <small class="text-muted">Find players and teams quickly</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-filter text-warning me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Custom Filters</h6>
+                                    <small class="text-muted">Filter by position, league, and more</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-download text-info me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Export Data</h6>
+                                    <small class="text-muted">Download statistics for analysis</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-lightbulb me-2"></i>Quick Tips</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item border-0 px-0">
+                            <i class="fas fa-caret-right text-primary me-2"></i>
+                            Use the search bar to quickly find players
+                        </div>
+                        <div class="list-group-item border-0 px-0">
+                            <i class="fas fa-caret-right text-primary me-2"></i>
+                            Compare up to 4 players at once
+                        </div>
+                        <div class="list-group-item border-0 px-0">
+                            <i class="fas fa-caret-right text-primary me-2"></i>
+                            Filter stats by different categories
+                        </div>
+                        <div class="list-group-item border-0 px-0">
+                            <i class="fas fa-caret-right text-primary me-2"></i>
+                            Check team performance vs opponents
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

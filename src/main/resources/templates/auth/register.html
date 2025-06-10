@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Register</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3><i class="fas fa-user-plus me-2"></i>Register</h3>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/register}" th:object="${registrationDTO}" method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" th:field="*{confirmPassword}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Account Type</label>
+                            <select class="form-select" id="role" th:field="*{role}" onchange="toggleTeamSelection()">
+                                <option value="USER">Regular User (View stats and comparisons)</option>
+                                <option value="TEAM_MANAGER">Team Manager (Manage a specific team)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3" id="teamSelection" style="display: none;">
+                            <label for="teamName" class="form-label">Select Team</label>
+                            <select class="form-select" id="teamName" th:field="*{teamName}">
+                                <option value="">Choose a team...</option>
+                                <option th:each="team : ${availableTeams}" th:value="${team}" th:text="${team}"></option>
+                            </select>
+                            <div class="form-text">Note: Team manager accounts require admin approval.</div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="/login">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleTeamSelection() {
+        const role = document.getElementById('role').value;
+        const teamSelection = document.getElementById('teamSelection');
+        const teamName = document.getElementById('teamName');
+
+        if (role === 'TEAM_MANAGER') {
+            teamSelection.style.display = 'block';
+            teamName.required = true;
+        } else {
+            teamSelection.style.display = 'none';
+            teamName.required = false;
+            teamName.value = '';
+        }
+    }
+</script>
+</body>
+</html>
